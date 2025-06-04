@@ -10,10 +10,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Main extends ApplicationAdapter
 {
-    private static final int TILE_SIZE = 16;
-    private static final int WORLD_WIDTH = 25;
-
-    //orthographic tiled map
+    private static final int TILE_SIZE = 32;
+    private static final int WORLD_SIZE = 100;
 
     Texture grassTexture;
     SpriteBatch batch;
@@ -23,13 +21,13 @@ public class Main extends ApplicationAdapter
     @Override
     public void create()
     {
-        grassTexture = new Texture(("temp_grass_texture.png"));
+        grassTexture = new Texture(("grass_texture.png"));
         batch = new SpriteBatch();
 
         camera = new OrthographicCamera(800, 600);
         camera.position.set(
-            WORLD_WIDTH * TILE_SIZE / 2f,
-            WORLD_WIDTH * TILE_SIZE / 2f,
+            WORLD_SIZE * TILE_SIZE / 2f,
+            WORLD_SIZE * TILE_SIZE / 2f,
             0
         );
         camera.update();

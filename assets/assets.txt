@@ -1,2 +1,5 @@
+coal_texture.png
+copper_texture.png
+grass_texture.png
+iron_texture.png
 libgdx.png
-temp_grass_texture.png
