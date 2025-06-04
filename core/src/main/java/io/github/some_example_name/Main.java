@@ -7,12 +7,11 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
 
 public class Main extends ApplicationAdapter
 {
     private static final int TILE_SIZE = 16;
-    private static final int IN_WORLD_SIZE_PER_TILE = 25;
+    private static final int WORLD_WIDTH = 25;
 
     //orthographic tiled map
 
@@ -29,8 +28,8 @@ public class Main extends ApplicationAdapter
 
         camera = new OrthographicCamera(800, 600);
         camera.position.set(
-            IN_WORLD_SIZE_PER_TILE * TILE_SIZE / 2f,
-            IN_WORLD_SIZE_PER_TILE * TILE_SIZE / 2f,
+            WORLD_WIDTH * TILE_SIZE / 2f,
+            WORLD_WIDTH * TILE_SIZE / 2f,
             0
         );
         camera.update();
@@ -45,8 +44,12 @@ public class Main extends ApplicationAdapter
         HandleCameraMovement();
 
         batch.begin();
-        //batch.draw(grassTexture,0,0, 200, 200); //first we specify the texture, then the position.
-        // then we specify the scale of the texture!
+
+        float camLeft = camera.position.x - camera.viewportWidth / 2f;
+        float camTop = camera.position.y + camera.viewportHeight / 2f;
+        float camRight = camera.position.x + camera.viewportWidth / 2f;
+        float camBottom = camera.position.y + camera.viewportHeight / 2f;
+
         batch.end();
     }
 
